@@ -1,0 +1,4 @@
+<?php get_header(); ?><main><section class="page-hero"><h1>CASE</h1><p>症例・施術事例</p></section><section class="section"><div class="wrapper archive-grid">
+<?php if(have_posts()): while(have_posts()):the_post(); ?>
+<a class="card" href="<?php the_permalink(); ?>"><?php if(has_post_thumbnail()) the_post_thumbnail('large'); ?><div class="card-body"><span class="label"><?php echo esc_html(get_the_terms(get_the_ID(),'case_category')[0]->name ?? 'CASE'); ?></span><h3><?php the_title(); ?></h3><p><?php echo esc_html(get_the_excerpt()); ?></p></div></a>
+<?php endwhile; endif; ?></div></section></main><?php get_footer(); ?>
